@@ -35,6 +35,14 @@ def gcd(a, b):
 def lcm(a, b):
     return a*b//gcd(a, b)
 
+def phi(n):
+    """ Euler's Totient Function """
+    y = n
+    for i in range(2,n+1):
+        if is_prime(i) and n % i == 0:
+            y *= 1 - 1.0/i
+    return int(y)
+
 def memoize(func):
     """Decorator for memoization"""
     cache = {}
