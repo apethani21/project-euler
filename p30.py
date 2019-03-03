@@ -3,7 +3,6 @@ import time
 start_time = time.time()
 
 powers = []
-total = 0
 
 for i in range(2,354294):
         sum = 0
@@ -13,10 +12,7 @@ for i in range(2,354294):
         if sum == i:
                 powers.append(i)
 
-for i in powers:
-        total += i
-
-print(total)
+print(sum(powers))
 
 end_time = time.time()
 
