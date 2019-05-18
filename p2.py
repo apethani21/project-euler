@@ -1,4 +1,5 @@
 import time
+from util import fibonacci
 
 start_time = time.time()
 
