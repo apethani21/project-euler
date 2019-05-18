@@ -7,6 +7,17 @@ def fibonacci(n):
     fib_reduct = reduce(lambda x, n: [x[1],x[0]+x[1]], range(1, n),[0,1])[0]
     return fib_reduct
 
+def memoize(func):
+    """Decorator for memoization"""
+    cache = {}
+    def memoized_func(*args):
+        if args in cache:
+            return cache[args]
+        result = func(*args)
+        cache[args] = result
+        return result
+    return memoized_func
+
 def is_prime(n):
     if n == 1:
         return False
@@ -35,21 +46,15 @@ def gcd(a, b):
 def lcm(a, b):
     return a*b//gcd(a, b)
 
+@memoize
 def phi(n):
     """ Euler's Totient Function """
+    if n%4 == 0:
+        return 2*phi(n//2)
+    if (n/2)%2 == 1:
+        return phi(n//2)
     y = n
     for i in range(2,n+1):
         if n%i == 0 and is_prime(i):
             y *= 1 - 1.0/i
     return int(y)
-
-def memoize(func):
-    """Decorator for memoization"""
-    cache = {}
-    def memoized_func(*args):
-        if args in cache:
-            return cache[args]
-        result = func(*args)
-        cache[args] = result
-        return result
-    return memoized_func
