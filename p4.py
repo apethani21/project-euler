@@ -8,7 +8,7 @@ for a in range(999, 99, -1):
         if a*b > max_palindrome:
             if str(a*b) == str(a*b)[::-1]:
                 max_palindrome = a*b
-print(k)
+print(max_palindrome)
 
 end_time = time.time()
 
