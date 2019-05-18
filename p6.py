@@ -1,13 +1,12 @@
 import time
-from functools import reduce
 
 start_time = time.time()
 
 def sum_of_squares(n):
-    return reduce((lambda x, y: x + y), [i**2 for i in range(n+1)])
+    return sum([i**2 for i in range(n+1)])
 
 def square_of_sum(n):
-    return reduce((lambda x, y: x + y), range(n+1))**2
+    return sum(range(n+1))**2
 
 print(square_of_sum(100) - sum_of_squares(100))
 
