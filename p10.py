@@ -3,11 +3,7 @@ from util import is_prime
 
 start_time = time.time()
 
-s = 0
-for i in range(2000000):
-    if is_prime(i):
-        s += i
-print(s)
+print(sum(filter(is_prime, range(2000000))))
 
 end_time = time.time()
 
