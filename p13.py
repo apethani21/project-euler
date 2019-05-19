@@ -2,11 +2,11 @@ import time
 
 start_time = time.time()
 
-sum = 0
+total = 0
 with open('problem13.txt', 'r') as f:
     for line in f:
-        sum += int(line)
-print(str(sum)[:10])
+        total += int(line)
+print(str(total)[:10])
 
 end_time = time.time()
 
