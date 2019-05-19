@@ -5,7 +5,6 @@ from functools import reduce
 start_time = time.time()
 
 def lexilist(n):
-    digits = list(map(lambda x: str(x), list(range(n+1))))
     string = reduce(lambda x, y: x+y, list(map(lambda x: str(x), list(range(n+1)))))
     perms = [''.join(p) for p in permutations(string)]
     return perms
