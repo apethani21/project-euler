@@ -6,11 +6,10 @@ def sum_of_divisors(n):
     divs = set()
     i = 1
     while i*i <= n:
-        if n%i == 0:
-            divs.add(i)
-            divs.add(n//i)
+        if not n%i:
+            divs.update({i, n//i})
         i += 1
-    return sum(divs)-n
+    return sum(divs) - n
 
 def is_perfect(n):
     return sum_of_divisors(n) == n

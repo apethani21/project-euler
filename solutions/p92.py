@@ -9,19 +9,18 @@ def squaresum(n):
         n //= 10
     return total
 
-def seq(n):
-    L = []
-    L.append(n)
-    while squaresum(L[-1]) not in L:
-        L.append(squaresum(L[-1]))
-    L.append(squaresum(L[-1]))    
-    return L
+def sequence(n):
+    seq = [n]
+    while squaresum(seq[-1]) not in seq:
+        seq.append(squaresum(seq[-1]))
+    seq.append(squaresum(seq[-1]))    
+    return seq
 
 start_time = time.time()
 
 count = 0
 for i in range(1, 10000001):
-    if 89 in seq(i):
+    if 89 in sequence(i):
         count += 1
 print(count)
 

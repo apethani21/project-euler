@@ -10,7 +10,7 @@ def num_of_divisors(n):
     sqrt_n = int(n**0.5)
 
     for i in range(1, sqrt_n + 1):
-        if n%i == 0:
+        if not n%i:
             divs += 1
 
     divs *= 2
@@ -24,8 +24,8 @@ while x < 500:
     x = num_of_divisors(triangular(n))
     n += 1
 
-print('Required triangular number: {}'.format(triangular(n-1)))
-print('Number of divisors: {}'.format(x))
+print(f"Required triangular number = {triangular(n-1)}")
+print(f"Number of divisors = {x}")
 
 end_time = time.time()
 

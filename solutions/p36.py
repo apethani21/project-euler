@@ -7,10 +7,7 @@ def binary(n):
 
 def is_palindrome(n):
     n = str(n)
-    if n == n[::-1]:
-        return True
-    else:
-        return False
+    return n == n[::-1]
 
 total = 0
 for i in range(1, 1000000):

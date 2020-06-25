@@ -8,14 +8,13 @@ start_time = time.time()
 def collatz(n):
     if n == 1:
         return 1
-    elif n%2 == 0:
+    elif not n%2:
         return 1 + collatz(n/2)
     else:
         return 1 + collatz(3*n + 1)
 
-L = np.array([collatz(n) for n in range(1, 1000000)])
-print('The longest collatz sequence is of length {} for value {}'.format(np.max(L), np.argmax(L)))
-
+collatz_numbers = np.array([collatz(n) for n in range(1, 1000000)])
+print(f"The longest collatz sequence is of length {np.max(collatz_numbers)} for values {np.argmax(collatz_numbers)}")
 end_time = time.time()
 
 print("Time taken: {} ms".format(round((end_time - start_time)*1000, 3)))

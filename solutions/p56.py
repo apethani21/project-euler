@@ -18,7 +18,7 @@ for a in range(2, 100):
             max_a = a
             max_b = b
 
-print("Digit sum of {}^{} equals {}".format(a, b, max_digit_sum))
+print(f"Digit sum of {a}^{b} equals {max_digit_sum}")
 
 end_time = time.time()
 

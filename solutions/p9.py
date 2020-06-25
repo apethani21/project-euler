@@ -2,13 +2,12 @@ import time
 
 start_time = time.time()
 
-def pythag(a, b, c):
-    if a**2 + b**2 == c**2:
-        return True
+def is_pythag_triple(a, b, c):
+    return a**2 + b**2 == c**2
 
 for a in range(500):
     for b in range(a, 500):
-        if pythag(a, b, 1000-a-b):
+        if is_pythag_triple(a, b, 1000-a-b):
             print(a*b*(1000-a-b))
 
 end_time = time.time()

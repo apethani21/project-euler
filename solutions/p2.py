@@ -6,7 +6,7 @@ start_time = time.time()
 total = 0
 n = 1
 while fibonacci(n) <= 4000000:
-    if fibonacci(n)%2 == 0:
+    if not fibonacci(n)%2:
         total += fibonacci(n)
     n += 1
 print(total)

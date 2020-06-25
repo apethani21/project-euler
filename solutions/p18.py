@@ -7,7 +7,7 @@ with open('triangle.txt', 'r') as f:
     
 for x in reversed(range(len(triangle))):
     for y in range(x):
-        triangle[x-1][y]+=max(triangle[x][y],triangle[x][y+1])
+        triangle[x-1][y] += max(triangle[x][y], triangle[x][y+1])
         
 print(triangle[0][0])
 

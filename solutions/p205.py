@@ -1,22 +1,16 @@
 import time
-import random
+import numpy as np
 
 start_time = time.time()
 
-P = 0
-C = 0
-draw = 0
-for i in range(100000):
-    peter = random.randint(1,4)
-    colin = random.randint(1, 6)
-    if peter > colin:
-        P += 1
-    elif peter < colin:
-        C += 1
-    else:
-        draw += 1
+samples = 1e7
+peter_scores = np.random.randint(1, 5, int(samples))
+colin_scores = np.random.randint(1, 7, int(samples))
+peter_wins = (peter_scores > colin_scores).sum()
+colin_wins = (peter_scores < colin_scores).sum()
+draws = (peter_scores == colin_scores).sum()
 
-print((P/100000, C/100000, draw/100000))
+print((peter_wins/samples), (colin_wins/samples), (draws/samples))
 
 end_time = time.time()
 

@@ -4,8 +4,8 @@ start_time = time.time()
 
 def has_pandigital_product(n):
 	for i in range(1, int(n**0.5) + 1):
-		if n%i == 0:
-			temp = str(n) + str(i) + str(n // i)
+		if not n%i:
+			temp = [str(n), str(i), str(n//i)]
 			if "".join(sorted(temp)) == "123456789":
 				return True
 	return False

@@ -4,25 +4,22 @@ from functools import reduce
 start_time = time.time()
 
 def sum_of_divisors(n):
-    S = 0
-    for i in range(1, n):
-        if n%i == 0:
-            S += i 
-    return S
+    divs = set()
+    i = 1
+    while i*i <= n:
+        if not n%i:
+            divs.update({i, n//i})
+        i += 1
+    return sum(divs) - n
  
 def amicable(a, b):
-    if sum_of_divisors(a) == b: 
-        if sum_of_divisors(b) == a:
-            return True
-    else:
-        return False
+    return (sum_of_divisors(a) == b) and (sum_of_divisors(b) == a)
     
 amicable_numbers = set()
 for x in range(1, 1000):
     for y in range(x+1, 1000):
         if amicable(x, y):
-            amicable_numbers.add(x)
-            amicable_numbers.add(y)
+            amicable_numbers.update({x, y})
 
 print(reduce((lambda x, y: x + y), amicable_numbers))
 

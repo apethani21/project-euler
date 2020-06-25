@@ -4,7 +4,8 @@ import inflect
 
 start_time = time.time()
 
-print(reduce((lambda x, y: x+y), [len(p.number_to_words(i).replace("-", "").replace(" ", "")) for i in range(1, 1001)]))
+inflector = inflect.engine()
+print(reduce((lambda x, y: x+y), [len(inflector.number_to_words(i).replace("-", "").replace(" ", "")) for i in range(1, 1001)]))
 
 end_time = time.time()
 

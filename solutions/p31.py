@@ -8,7 +8,7 @@ combinations = [1] + [0]*total
 
 for coin in coins:
     for i in range(coin, total+1):
-        combinations[i] += combinations[i-coin]
+        combinations[i] += combinations[i - coin]
 
 print(combinations[total])
 
