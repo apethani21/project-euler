@@ -1,11 +1,14 @@
 """ Utility functions """
 
 from functools import reduce
+from collections import Counter
+
 
 def fibonacci(n):
     assert n > 0
     fib_reduct = reduce(lambda x, n: [x[1],x[0]+x[1]], range(1, n),[0,1])[0]
     return fib_reduct
+
 
 def memoize(func):
     """Decorator for memoization"""
@@ -17,6 +20,7 @@ def memoize(func):
         cache[args] = result
         return result
     return memoized_func
+
 
 def is_prime(n):
     if n == 1:
@@ -30,21 +34,33 @@ def is_prime(n):
         else:
             return True
 
+
+def get_prime_factorisation(n):
+    primes = []
+    i = 2
+    while i**2 <= n:
+        if not n%i:
+            n //= i
+            primes.append(i)
+        else:
+            i += 1
+    primes.append(n)
+    return dict(Counter(primes))
+
+
 def largest_prime_factor(n):
-    if is_prime(n):
-        return n
-    
-    for i in range(int((n**0.5)+1), 1, -1):
-        if n%i == 0 and is_prime(i):
-            return i
+    return max(get_prime_factorisation(n).keys())
+
 
 def gcd(a, b):
     while b:
         a, b = b, a%b
     return a
 
+
 def lcm(a, b):
     return a*b//gcd(a, b)
+
 
 @memoize
 def phi(n):
