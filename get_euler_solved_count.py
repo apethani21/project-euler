@@ -23,7 +23,7 @@ def get_problem_info(problem_number):
 def download_results():
     start = time.time()
     results = {problem_number: get_problem_info(problem_number)
-               for problem_number in range(1, 691)}
+               for problem_number in range(1, 711)}
     with open("project_euler_solve_counts.json", "w") as f:
         json.dump(results, f)
     end = time.time()
